@@ -29,11 +29,11 @@ db.connect(err => {
 app.post('/users', (req, res) => {
     const { name, age, email } = req.body;
 
-    if (!name || !age || !email) {
+if (!name || !age || !email) {
         return res.status(400).json({ message: 'يرجى ملء جميع الحقول المطلوبة' });
     }
 
-    const sql = 'INSERT INTO users (name, age, email) VALUES (?, ?, ?)';
+const sql = 'INSERT INTO users (name, age, email) VALUES (?, ?, ?)';
     db.query(sql, [name, age, email], (err, result) => {
         if (err) {
             console.error('error':', err);
